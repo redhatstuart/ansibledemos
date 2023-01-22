@@ -12,7 +12,7 @@
 
     - name: Install the latest version of Apache
       ansible.builtin.dnf:
-        name: httpd
+        name: apache2
         state: latest
       when: 
         - ansible_facts['os_family'] == "Debian"
