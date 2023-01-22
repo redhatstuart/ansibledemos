@@ -7,6 +7,15 @@
       ansible.builtin.dnf:
         name: httpd
         state: latest
+      when: 
+        - ansible_facts['os_family'] == "RedHat"
+
+    - name: Install the latest version of Apache
+      ansible.builtin.dnf:
+        name: httpd
+        state: latest
+      when: 
+        - ansible_facts['os_family'] == "Debian"
 
     - name: Start service httpd, if not started
       ansible.builtin.service:
