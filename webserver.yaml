@@ -1,4 +1,5 @@
 - name: Create a webserver
+  hosts: all
   tasks:
     - name: Install the latest version of Apache
       ansible.builtin.dnf:
