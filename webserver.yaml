@@ -1,5 +1,7 @@
 - name: Create a webserver
   hosts: all
+  become: true
+  gather_facts: true
   tasks:
     - name: Install the latest version of Apache
       ansible.builtin.dnf:
@@ -11,7 +13,7 @@
         name: httpd
         state: started
 
-   - name: Enable service httpd, and not touch the state
-     ansible.builtin.service:
-       name: httpd
-       enabled: yes
+    - name: Enable service httpd, and not touch the state
+      ansible.builtin.service:
+        name: httpd
+        enabled: yes
