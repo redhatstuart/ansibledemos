@@ -8,8 +8,8 @@
         name: httpd
         state: latest
       when: 
-        - ansible_facts['ansible_distribution'] == "RedHat"
-        - ansible_facts['ansible_distribution'] == "CentOS"
+        - ansible_distribution == "RedHat"
+        - ansible_distribution == "CentOS"
 
     - name: Install the latest version of Apache for Ubuntu
       ansible.builtin.apt:
