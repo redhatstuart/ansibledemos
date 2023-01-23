@@ -35,7 +35,21 @@
       when:
         - ansible_facts['distribution'] == "Ubuntu"
 
-    - name: Enable service httpd, and not touch the state
+    - name: Enable service httpd for RHEL/CentOS
       ansible.builtin.service:
         name: httpd
         enabled: yes
+      when:
+        - ansible_facts['distribution'] == "RedHat"
+        - ansible_facts['distribution'] == "CentOS"
+
+    - name: Enable service apache2 for Ubuntu
+      ansible.builtin.service:
+        name: httpd
+        enabled: yes
+      when:
+        - ansible_facts['distribution'] == "Ubuntu"
+
+
+
+
