@@ -36,22 +36,21 @@
     - name: Enable service httpd for RHEL/CentOS
       ansible.builtin.service:
         name: httpd
-        enabled: yes
+        enabled: true
       when:
         - ansible_facts['os_family'] == "RedHat"
 
     - name: Enable service apache2 for Ubuntu
       ansible.builtin.service:
         name: apache2
-        enabled: yes
+        enabled: true
       when:
         - ansible_facts['os_family'] == "Debian"
 
-    - name: Allow http traffic for RHEL/CentOS
-      ansible.posix.firewalld:
-        service: http
-        permanent: yes
-        state: enabled
+    - name: Disable firewalld for RHEL/CentOS
+      ansible.builtin.service:
+        name: firewalld
+        enabled: false
       when:
-        - ansible_facts['os_family'] == "RedHat" 
+        - ansible_facts['os_family'] == "RedHat"
 
