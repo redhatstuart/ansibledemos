@@ -18,37 +18,37 @@
         update_cache: yes
         cache_valid_time: 3600
       when: 
-        - ansible_facts['ansible_distribution'] == "Ubuntu"
+        - ansible_distribution == "Ubuntu"
 
     - name: Start service httpd, if not started for RHEL/CentOS
       ansible.builtin.service:
         name: httpd
         state: started
       when:
-        - ansible_facts['ansible_distribution'] == "RedHat"
-        - ansible_facts['ansible_distribution'] == "CentOS"
+        - ansible_distribution == "RedHat"
+        - ansible_distribution == "CentOS"
 
     - name: Start service apache2, if not started for Ubuntu
       ansible.builtin.service:
         name: apache2
         state: started
       when:
-        - ansible_facts['ansible_distribution'] == "Ubuntu"
+        - ansible_distribution == "Ubuntu"
 
     - name: Enable service httpd for RHEL/CentOS
       ansible.builtin.service:
         name: httpd
         enabled: yes
       when:
-        - ansible_facts['ansible_distribution'] == "RedHat"
-        - ansible_facts['ansible_distribution'] == "CentOS"
+        - ansible_distribution == "RedHat"
+        - ansible_distribution == "CentOS"
 
     - name: Enable service apache2 for Ubuntu
       ansible.builtin.service:
         name: apache2
         enabled: yes
       when:
-        - ansible_facts['ansible_distribution'] == "Ubuntu"
+        - ansible_distribution == "Ubuntu"
 
 
 
