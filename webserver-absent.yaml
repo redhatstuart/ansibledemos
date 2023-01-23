@@ -3,7 +3,7 @@
   become: true
   gather_facts: true
   tasks:
-    - name: Install the latest version of Apache for RHEL/CentOS
+    - name: Remove Apache for RHEL/CentOS
       ansible.builtin.dnf:
         name: httpd
         state: absent
@@ -11,19 +11,9 @@
         - ansible_facts['distribution'] == "RedHat"
         - ansible_facts['distribution'] == "CentOS"
 
-    - name: Install the latest version of Apache for Ubuntu
+    - name: Remove Apache for Ubuntu
       ansible.builtin.apt:
         name: apache2
         state: absent
       when: 
         - ansible_facts['distribution'] == "Ubuntu"
-
-    - name: Start service httpd, if not started
-      ansible.builtin.service:
-        name: httpd
-        state: absent
-
-        #    - name: Enable service httpd, and not touch the state
-        #      ansible.builtin.service:
-        #        name: httpd
-        #        enabled: yes
