@@ -55,10 +55,3 @@
       when:
         - ansible_facts['os_family'] == "RedHat" 
 
-    - name: Allow http traffic for Ubuntu
-      community.general.ufw:
-        rule: allow
-        port: 80
-        proto: tcp
-      when:
-        - ansible_facts['os_family'] == "Debian"
