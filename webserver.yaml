@@ -20,10 +20,20 @@
       when: 
         - ansible_facts['distribution'] == "Ubuntu"
 
-    - name: Start service httpd, if not started
+    - name: Start service httpd, if not started for RHEL/CentOS
       ansible.builtin.service:
         name: httpd
         state: started
+      when:
+        - ansible_facts['distribution'] == "RedHat"
+        - ansible_facts['distribution'] == "CentOS"
+
+    - name: Start service apache2, if not started for Ubuntu
+      ansible.builtin.service:
+        name: apache2
+        state: started
+      when:
+        - ansible_facts['distribution'] == "Ubuntu"
 
     - name: Enable service httpd, and not touch the state
       ansible.builtin.service:
