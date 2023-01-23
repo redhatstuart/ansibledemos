@@ -1,4 +1,4 @@
-- name: Create a webserver
+- name: Remove all webserver configs
   hosts: all
   become: true
   gather_facts: true

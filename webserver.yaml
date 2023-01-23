@@ -1,4 +1,4 @@
-- name: Create a webserver
+- name: Setup and enable webservers on all hosts
   hosts: all
   become: true
   gather_facts: true
