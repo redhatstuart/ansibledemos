@@ -1,14 +1,14 @@
-- name: Setup and enable webservers on all hosts
+- name: Remove all webserver configs
   hosts: all
   gather_facts: true
   tasks:
 
-    - name: Start IIS
+    - name: Stop IIS
       win_service:
         name: W3Svc
         state: stopped
 
-    - name: Install IIS
+    - name: Uninstall IIS
       win_feature:
         name:
         - Web-Server
