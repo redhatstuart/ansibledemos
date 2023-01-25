@@ -1,0 +1,23 @@
+- name: Setup and enable webservers on all hosts
+  hosts: all
+  become: true
+  gather_facts: true
+  tasks:
+    - name: Install IIS
+      win_feature:
+        name:
+        - Web-Server
+        - Web-Common-Http
+        state: present
+        include_sub_features: true
+        include_management_tools: true
+
+    - name: Start IIS
+      win_service:
+        name: W3Svc
+        state: started
+
+    - name: Rebooting Windows Server for IIS
+      win_reboot:
+      when: win_feature.reboot_required
+

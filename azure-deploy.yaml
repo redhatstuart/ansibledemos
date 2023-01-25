@@ -1,0 +1,10 @@
+- name: Azure integration with Ansible demonstration
+  hosts: localhost
+  tasks:
+    - name: Create a resource group
+      azure_rm_resourcegroup:
+        name: AnsibleAzureRG
+        location: eastus
+        tags:
+            deployment: Ansible 
+            tier: testing
