@@ -1,6 +1,7 @@
 - name: Setup and enable webservers on all hosts
   hosts: all
   become: true
+  become_method: runas
   gather_facts: true
   tasks:
     - name: Install IIS
