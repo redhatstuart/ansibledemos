@@ -18,3 +18,19 @@
         autoremove: yes
       when: 
         - ansible_facts['os_family'] == "Debian"
+
+    - name: block traffic in default zone for http service
+      ansible.posix.firewalld:
+        service: http
+        permanent: true
+        state: absent
+      when:
+        - ansible_facts['os_family'] == "RedHat"
+
+    - name: block traffic in default zone for https service
+      ansible.posix.firewalld:
+        service: https
+        permanent: true
+        state: absent
+      when:
+        - ansible_facts['os_family'] == "RedHat"
