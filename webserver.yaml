@@ -47,6 +47,13 @@
       when:
         - ansible_facts['os_family'] == "Debian"
 
+    - name: Enable service firewalld for RHEL
+      ansible.builtin.service:
+        name: firewalld
+        enabled: true
+      when:
+        - ansible_facts['os_family'] == "RedHat"
+
     - name: permit traffic in default zone for http service
       ansible.posix.firewalld:
         service: http
