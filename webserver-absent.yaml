@@ -4,7 +4,7 @@
   gather_facts: true
   tasks:
     - name: Remove Apache for RHEL/CentOS
-      ansible.builtin.dnf:
+      ansible.builtin.yum:
         name: httpd
         state: absent
         autoremove: yes
