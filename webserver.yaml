@@ -4,7 +4,7 @@
   gather_facts: true
   tasks:
     - name: Install the latest version of Apache for RHEL/CentOS
-      ansible.builtin.dnf:
+      ansible.builtin.yum:
         name: httpd
         state: latest
       when: 
