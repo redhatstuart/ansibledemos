@@ -1,0 +1,9 @@
+- name: Copy some files to the default document root for IIS
+  hosts: all
+  gather_facts: true
+  tasks:
+
+    - name: Copy a single file keeping the filename
+      ansible.windows.win_copy:
+        src: /root/windowsindex.html
+        dest: C:\inetpub\wwwroot
