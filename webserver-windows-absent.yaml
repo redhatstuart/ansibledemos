@@ -4,12 +4,12 @@
   tasks:
 
     - name: Stop IIS
-      ansible.windowswin_service:
+      ansible.windows.win_service:
         name: W3Svc
         state: stopped
 
     - name: Uninstall IIS
-      ansible.windowswin_feature:
+      ansible.windows.win_feature:
         name:
         - Web-Server
         - Web-Common-Http
