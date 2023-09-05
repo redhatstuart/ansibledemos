@@ -3,11 +3,6 @@
   gather_facts: true
   tasks:
 
-    - name: Stop IIS
-      ansible.windows.win_service:
-        name: W3Svc
-        state: stopped
-
     - name: Uninstall IIS
       ansible.windows.win_feature:
         name:
@@ -16,3 +11,8 @@
         state: absent
         include_sub_features: true
         include_management_tools: true
+
+#    - name: Stop IIS
+#      ansible.windows.win_service:
+#        name: W3Svc
+#        state: stopped
