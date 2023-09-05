@@ -5,5 +5,5 @@
 
     - name: Copy a single file keeping the filename
       ansible.windows.win_copy:
-        src: /root/windows/index.html
+        src: /windows/index.html
         dest: C:\inetpub\wwwroot
