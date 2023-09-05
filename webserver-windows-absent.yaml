@@ -4,16 +4,15 @@
   tasks:
 
     - name: Stop IIS
-      win_service:
+      ansible.windowswin_service:
         name: W3Svc
         state: stopped
 
     - name: Uninstall IIS
-      win_feature:
+      ansible.windowswin_feature:
         name:
         - Web-Server
         - Web-Common-Http
         state: absent
         include_sub_features: true
         include_management_tools: true
-
