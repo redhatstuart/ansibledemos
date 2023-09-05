@@ -3,7 +3,7 @@
   gather_facts: true
   tasks:
     - name: Install IIS
-      win_feature:
+      ansible.windows.win_feature:
         name:
         - Web-Server
         - Web-Common-Http
@@ -11,8 +11,8 @@
         include_sub_features: true
         include_management_tools: true
 
-    - name: Start IIS
-      win_service:
+    - name: Set service startup mode to auto and ensure it is started
+      ansible.windows.win_service:
         name: W3Svc
+        start_mode: auto
         state: started
-
