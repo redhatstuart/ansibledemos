@@ -8,7 +8,7 @@
         src: windows/index.html
         dest: C:\inetpub\wwwroot
 
-    - name: Copy folder to C:\Temp (results in C:\Temp\temp_files)
+    - name: Copy a folder with some Windows WWW content to Windows Server
       ansible.windows.win_copy:
         src: windows/pictures
         dest: C:\inetpub\wwwroot
