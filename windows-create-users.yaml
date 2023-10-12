@@ -3,85 +3,80 @@
   gather_facts: true
   tasks:
 
-#   - name: Ensure a group exists
-#     microsoft.ad.group:
-#       name: Rush
-#       scope: global
-
-   - name: Create a new group
-     ansible.windows.win_group:
-       name: Rush
-       description: A group for the band
-       state: present
-
-   - name: Ensure user alex is present with address information
-     microsoft.ad.user:
-       name: alex
-       firstname: Alex
-       surname: Lifeson
-       company: SRO Management Inc
-       password: RushIsABand1968
-       state: present
-       groups:
-         set:
-         - Rush
-         - Domain Users
-       street: 123 Rush Street
-       city: Willowdale
-       state_province: Ontario
-       postal_code: M5M5M5
-       country: CA 
-       attributes:
-         set:
-           telephoneNumber: 416-555-1212 
-
-   - name: Ensure user neil is present with address information
-     microsoft.ad.user:
-       name: neil
-       firstname: Neil
-       surname: Peart
-       company: SRO Management Inc
-       password: RushIsABand1968
-       state: present
-       groups:
-         set:
-#         - Rush
-         - Domain Users
-       street: 230 Russell Hill Road
-       city: Toronto
-       state_province: Ontario
-       postal_code: M5M5M5
-       country: CA
-       attributes:
-         set:
-           telephoneNumber: 416-555-1212
-
-   - name: Ensure user geddy is present with address information
-     microsoft.ad.user:
-       name: geddy
-       firstname: Geddy
-       surname: Lee
-       company: SRO Management Inc
-       password: RushIsABand1968
-       state: present
-       groups:
-         set:
-#         - Rush
-         - Domain Users
-       street: 23 Rosedale Road
-       city: Toronto
-       state_province: Ontario
-       postal_code: M5M5M5
-       country: CA
-       attributes:
-         set:
-           telephoneNumber: 416-555-1212
-
-   - name: Ensure user neil is in the Domain Admins group
-     microsoft.ad.user:
-       name: neil
-       state: present
-       groups:
-         set:
-         - Domain Users
-         - Domain Admins
+    - name: Create a new group
+      ansible.windows.win_group:
+        name: Rush
+        description: A group for the band
+        state: present
+ 
+    - name: Ensure user alex is present with address information
+      microsoft.ad.user:
+        name: alex
+        firstname: Alex
+        surname: Lifeson
+        company: SRO Management Inc
+        password: RushIsABand1968
+        state: present
+        groups:
+          set:
+          - Rush
+          - Domain Users
+        street: 123 Rush Street
+        city: Willowdale
+        state_province: Ontario
+        postal_code: M5M5M5
+        country: CA 
+        attributes:
+          set:
+            telephoneNumber: 416-555-1212 
+ 
+    - name: Ensure user neil is present with address information
+      microsoft.ad.user:
+        name: neil
+        firstname: Neil
+        surname: Peart
+        company: SRO Management Inc
+        password: RushIsABand1968
+        state: present
+        groups:
+          set:
+          - Rush
+          - Domain Users
+        street: 230 Russell Hill Road
+        city: Toronto
+        state_province: Ontario
+        postal_code: M5M5M5
+        country: CA
+        attributes:
+          set:
+            telephoneNumber: 416-555-1212
+ 
+    - name: Ensure user geddy is present with address information
+      microsoft.ad.user:
+        name: geddy
+        firstname: Geddy
+        surname: Lee
+        company: SRO Management Inc
+        password: RushIsABand1968
+        state: present
+        groups:
+          set:
+          - Rush
+          - Domain Users
+        street: 23 Rosedale Road
+        city: Toronto
+        state_province: Ontario
+        postal_code: M5M5M5
+        country: CA
+        attributes:
+          set:
+            telephoneNumber: 416-555-1212
+ 
+    - name: Ensure user neil is in the Domain Admins group
+      microsoft.ad.user:
+        name: neil
+        state: present
+        groups:
+          set:
+          - Domain Users
+          - Domain Admins
