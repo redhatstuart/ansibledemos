@@ -36,6 +36,5 @@
 
     - name: Print returned information
       ansible.builtin.debug:
-#        msg: "{{ windows_updates['content'] | b64decode }}"
-        msg: "{{ windows_updates.stdout.split('\n') }}"
+        msg: "{{ windows_updates['content'] | b64decode }}"
 
