@@ -29,12 +29,13 @@
         product_id: '{CF2BEA3C-26EA-32F8-AA9B-331F7E34BA97}'
         arguments: /install /passive /norestart
 
-    - name: Retrieve remote ini file on a Windows host
+    - name: Retrieve list of found updates
       ansible.builtin.slurp:
         src: C:\ansible_wu.txt
       register: windows_updates
 
     - name: Print returned information
       ansible.builtin.debug:
-        msg: "{{ windows_updates['content'] | b64decode }}"
+#        msg: "{{ windows_updates['content'] | b64decode }}"
+        msg: "{{ windows_updates.stdout.split('\n') }}"
 
