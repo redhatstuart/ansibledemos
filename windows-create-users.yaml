@@ -22,7 +22,7 @@
          - Domain Users
        street: 123 Rush Street
        city: Willowdale
-       state_province: ON
+       state_province: Ontario
        postal_code: M5M5M5
        country: CA 
        attributes:
@@ -43,14 +43,14 @@
          - Domain Users
        street: 230 Russell Hill Road
        city: Toronto
-       state_province: ON
+       state_province: Ontario
        postal_code: M5M5M5
        country: CA
        attributes:
          set:
            telephoneNumber: 416-555-1212
 
-   - name: Ensure user alex is present with address information
+   - name: Ensure user geddy is present with address information
      microsoft.ad.user:
        name: geddy
        firstname: Geddy
@@ -64,7 +64,7 @@
          - Domain Users
        street: 23 Rosedale Road
        city: Toronto
-       state_province: ON
+       state_province: Ontario
        postal_code: M5M5M5
        country: CA
        attributes:
@@ -77,4 +77,5 @@
        state: present
        groups:
          set:
+         - Domain Users
          - Domain Admins
