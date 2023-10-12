@@ -7,7 +7,7 @@
       win_service:
         name: wuauserv
         state: started
-        enabled: true
+        start_mode: auto
 
     - name: Search-only, return list of found updates (if any), log to C:\ansible_wu.txt
       ansible.windows.win_updates:
