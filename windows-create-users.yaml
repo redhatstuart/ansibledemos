@@ -3,10 +3,10 @@
   gather_facts: true
   tasks:
 
-   - name: Ensure a group exists
-     microsoft.ad.group:
-       name: Rush
-       scope: global
+#   - name: Ensure a group exists
+#     microsoft.ad.group:
+#       name: Rush
+#       scope: global
 
    - name: Ensure user alex is present with address information
      microsoft.ad.user:
@@ -18,7 +18,7 @@
        state: present
        groups:
          set:
-         - Rush
+#         - Rush
          - Domain Users
        street: 123 Rush Street
        city: Willowdale
@@ -39,7 +39,7 @@
        state: present
        groups:
          set:
-         - Rush
+#         - Rush
          - Domain Users
        street: 230 Russell Hill Road
        city: Toronto
@@ -60,7 +60,7 @@
        state: present
        groups:
          set:
-         - Rush
+#         - Rush
          - Domain Users
        street: 23 Rosedale Road
        city: Toronto
