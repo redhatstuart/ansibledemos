@@ -8,6 +8,12 @@
 #       name: Rush
 #       scope: global
 
+    - name: Create a new group
+      ansible.windows.win_group:
+        name: Rush
+        description: A group for the band
+        state: present
+
    - name: Ensure user alex is present with address information
      microsoft.ad.user:
        name: alex
@@ -18,7 +24,7 @@
        state: present
        groups:
          set:
-#         - Rush
+         - Rush
          - Domain Users
        street: 123 Rush Street
        city: Willowdale
