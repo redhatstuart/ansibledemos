@@ -1,0 +1,20 @@
+- name: Create a user in Windows Active Directory
+  hosts: all
+  gather_facts: true
+  tasks:
+
+
+    - name: Search-only, return list of found updates (if any), log to C:\ansible_wu.txt
+      ansible.windows.win_updates:
+        category_names: SecurityUpdates
+        state: searched
+        log_path: C:\ansible_wu.txt
+
+    - name: Install only particular updates based on the KB numbers
+      ansible.windows.win_updates:
+        category_names:
+        - SecurityUpdates
+        accept_list:
+        - KB4056892
+        - KB4073117
+

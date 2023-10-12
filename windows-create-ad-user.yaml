@@ -1,0 +1,44 @@
+- name: Create a user in Windows Active Directory
+  hosts: all
+  gather_facts: true
+  tasks:
+
+    - name: Create a new group for the band
+      ansible.windows.win_group:
+        name: Rush
+        description: A group for the band
+        state: present
+
+    - name: Ensure user alex is present
+      ansible.windows.win_user:
+        name: alex
+        fullname: Alex Lifeson
+        description: Guitars
+        password: RushIsABand1968
+        password_never_expires: true
+        state: present
+        groups:
+          - Rush
+
+    - name: Ensure user neil is present
+      ansible.windows.win_user:
+        name: neil
+        fullname: Neil Peart
+        description: Drums
+        password: RushIsABand1968
+        password_never_expires: true
+        state: present
+        groups:
+          - Rush
+
+    - name: Ensure user alex is present
+      ansible.windows.win_user:
+        name: geddy
+        fullname: Geddy Lee
+        description: Vocals
+        password: RushIsABand1968
+        password_never_expires: true
+        state: present
+        groups:
+          - Rush
+
