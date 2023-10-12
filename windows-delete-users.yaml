@@ -1,0 +1,25 @@
+- name: Delete users and groups in Windows Active Directory
+  hosts: all
+  gather_facts: true
+  tasks:
+
+    - name: Delete alex
+      microsoft.ad.user:
+        name: alex
+        state: absent
+ 
+    - name: Delete neil
+      microsoft.ad.user:
+        name: neil
+        state: absent
+
+    - name: Delete geddy
+      microsoft.ad.user:
+        name: geddy
+        state: absent
+ 
+    - name: Remove private security group
+      ansible.windows.win_group:
+        name: Rush
+        state: absent
+
